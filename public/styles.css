@@ -1242,17 +1242,18 @@ html:has(.sheet[open]) { overflow: hidden; }
 .fine ul { padding-left: 18px; margin: 0 0 14px; }
 .fine li { margin-bottom: 8px; }
 .sources a { text-underline-offset: 2px; word-break: break-word; }
-.fine__disclaimer {
-  margin-top: 22px !important;
-  padding-top: 14px;
-  border-top: 1px solid rgba(0, 0, 0, 0.25);
-  max-width: var(--max) !important;
-  color: rgba(0, 0, 0, 0.72);
-}
+/* «.fine .» para ganar a «.fine p», que les quitaba el centrado en pantallas anchas */
+.fine .fine__disclaimer,
 .fine .fine__repo {
   max-width: var(--max);
   margin: 0 auto;
   color: rgba(0, 0, 0, 0.72);
+}
+.fine .fine__disclaimer {
+  margin-top: 22px;
+  margin-bottom: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
 }
 .fine__repo a {
   color: var(--negro);
