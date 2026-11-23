@@ -1,0 +1,107 @@
+<!doctype html>
+<!-- Plantilla de la vista previa al compartir (public/og.jpg). Se genera con tools/make-og.sh -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>og</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Azeret+Mono:wght@400;600;800&family=Nanum+Pen+Script&display=block" rel="stylesheet">
+<style>
+  :root {
+    --amarillo: #ffe11a; --rojo: #e30613; --negro: #000; --papel: #fbfbf8; --termica: #34322f; --boli: #1b3fd1;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; background: var(--amarillo); }
+  body { position: relative; font-family: 'Archivo', sans-serif; color: var(--negro); }
+
+  .logo {
+    position: absolute; left: 64px; top: 52px;
+    font-weight: 900; font-stretch: 100%; font-size: 34px; letter-spacing: -0.02em;
+  }
+  h1 {
+    position: absolute; left: 60px; top: 150px; width: 640px;
+    font-weight: 900; font-stretch: 68%; font-size: 100px; line-height: 0.9; letter-spacing: -0.01em;
+  }
+  .hook {
+    position: absolute; left: 66px; top: 452px;
+    font-family: 'Nanum Pen Script', cursive; font-size: 44px; line-height: 1; color: var(--boli);
+    transform: rotate(-2deg); transform-origin: left center; white-space: nowrap;
+  }
+  .url {
+    position: absolute; left: 64px; bottom: 56px;
+    background: var(--negro); color: var(--amarillo);
+    font-weight: 800; font-stretch: 100%; font-size: 30px; letter-spacing: -0.01em;
+    padding: 10px 18px 12px;
+  }
+
+  .ticket {
+    position: absolute; left: 700px; top: 34px; width: 462px;
+    background: var(--papel); color: var(--termica);
+    font-family: 'Azeret Mono', monospace; font-size: 18.5px; line-height: 1.66;
+    padding: 28px 26px 400px;
+    transform: rotate(-2.5deg); transform-origin: top left;
+    box-shadow: 0 22px 40px -14px rgba(0, 0, 0, 0.4);
+  }
+  .t-head { text-align: center; }
+  .t-logo { font-weight: 800; font-size: 26px; letter-spacing: -0.02em; line-height: 1.3; }
+  .t-muted { opacity: 0.75; }
+  .t-rule { border: 0; border-top: 2px dashed var(--termica); margin: 14px 0; opacity: 0.8; }
+  .t-rule--double { border-top: 4px double var(--termica); opacity: 1; }
+  .t-sec { font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 4px; }
+  .t-row { display: flex; align-items: baseline; gap: 8px; position: relative; white-space: nowrap; }
+  .t-dots { flex: 1 1 12px; border-bottom: 2px dotted var(--termica); transform: translateY(-5px); opacity: 0.55; }
+  .t-val { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .t-row--total { font-weight: 800; font-size: 23px; }
+  .t-row--total .t-dots { opacity: 0; }
+  .t-row--marked { margin-bottom: 50px; }
+  .circle { position: absolute; left: -20px; right: -14px; top: -9px; bottom: -9px; }
+  .circle svg { width: 100%; height: 100%; overflow: visible; }
+  .circle path { fill: none; stroke: var(--boli); stroke-width: 2.8; stroke-linecap: round; }
+  .note {
+    position: absolute; right: -2px; top: calc(100% + 6px);
+    font-family: 'Nanum Pen Script', cursive; font-size: 38px; line-height: 1; color: var(--boli);
+    white-space: nowrap; transform: rotate(-4deg);
+  }
+</style>
+</head>
+<body>
+  <p class="logo">¿Y mi pasta?</p>
+  <h1>Pon tu sueldo y te sale el ticket de tus impuestos</h1>
+  <p class="hook">¿Y les cuadran las promesas del 29N?</p>
+  <p class="url">dondevamipasta.com</p>
+  <article class="ticket" id="ticket"></article>
+
+<script type="module">
+  import { SPENDING, SPENDING_TOTAL } from '../public/data.js';
+  import { fromGross, grossFromNet } from '../public/tax.js';
+  import { num, eur } from '../public/format.js';
+
+  const NET_MONTH = 1800;
+  const r = fromGross(grossFromNet(NET_MONTH * 14));
+  const lines = SPENDING
+    .map((s) => ({ ...s, amount: (r.total * s.m) / SPENDING_TOTAL }))
+    .sort((a, b) => b.amount - a.amount)
+    .slice(0, 9);
+  const PEN = 'M6,24 C8,8 110,3 220,4 C280,5 297,13 295,23 C292,35 205,39 125,38 C45,37 3,33 7,19 C10,11 36,7 66,6';
+  const row = (label, value, cls = '', extra = '') =>
+    `<div class="t-row ${cls}"><span>${label}</span><span class="t-dots"></span><span class="t-val">${value}</span>${extra}</div>`;
+
+  document.getElementById('ticket').innerHTML = `
+    <header class="t-head">
+      <p class="t-logo">¿Y MI PASTA?</p>
+      <p class="t-muted">${num(NET_MONTH, 0)} € netos al mes × 14</p>
+    </header>
+    <hr class="t-rule">
+    ${row('LO QUE PONES', eur(r.total), 't-row--total')}
+    <hr class="t-rule t-rule--double">
+    <p class="t-sec">En qué se gasta</p>
+    ${lines.map((l) => l.key === 'intereses'
+      ? row(l.short, num(l.amount), 't-row--marked',
+          `<span class="circle"><svg viewBox="0 0 300 42" preserveAspectRatio="none"><path d="${PEN}"/></svg></span><span class="note">¡más que todo el paro!</span>`)
+      : row(l.short, num(l.amount))).join('')}
+  `;
+  document.fonts.ready.then(() => document.body.dataset.ready = '1');
+</script>
+</body>
+</html>

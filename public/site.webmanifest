@@ -1,0 +1,16 @@
+{
+  "name": "¿Y mi pasta? El ticket de tus impuestos",
+  "short_name": "¿Y mi pasta?",
+  "description": "Pon tu sueldo y mira en qué se gasta cada euro que pagas.",
+  "lang": "es",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffe11a",
+  "theme_color": "#ffe11a",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

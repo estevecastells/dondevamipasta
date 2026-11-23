@@ -1,0 +1,13 @@
+node_modules/
+.wrangler/
+.cloudflare/
+.claude/
+.dev.vars*
+.env*
+.DS_Store
+
+# Las genera tools/build-langs.mjs al arrancar la web en local o al publicar
+public/es.html
+public/ca.html
+public/eu.html
+public/gl.html

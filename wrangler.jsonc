@@ -1,0 +1,18 @@
+// Web estática en Cloudflare Workers (solo archivos, sin código de servidor).
+// Publicar: wrangler deploy
+// Antes de publicar genera /es, /ca, /eu y /gl (public/ca.html…) a partir de index.html.
+{
+  "name": "dondevamipasta",
+  "compatibility_date": "2026-11-01",
+  "build": {
+    "command": "node tools/build-langs.mjs"
+  },
+  "assets": {
+    "directory": "./public"
+  },
+  "routes": [
+    { "pattern": "dondevamipasta.com", "custom_domain": true }
+  ],
+  "workers_dev": false,
+  "preview_urls": false
+}

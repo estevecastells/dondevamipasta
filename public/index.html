@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>¿Y mi pasta? El ticket de tus impuestos</title>
+  <meta name="description" content="Pon tu sueldo y te imprimimos el ticket: cuánto pagas en impuestos y en qué se gasta cada euro, con datos oficiales. Y si les cuadran las cuentas a PP, PSOE, Vox y Sumar en las elecciones del 29N.">
+  <meta name="theme-color" content="#FFE11A">
+  <link rel="canonical" href="https://dondevamipasta.com/">
+  <link rel="alternate" hreflang="es" href="https://dondevamipasta.com/es">
+  <link rel="alternate" hreflang="ca" href="https://dondevamipasta.com/ca">
+  <link rel="alternate" hreflang="eu" href="https://dondevamipasta.com/eu">
+  <link rel="alternate" hreflang="gl" href="https://dondevamipasta.com/gl">
+  <link rel="alternate" hreflang="x-default" href="https://dondevamipasta.com/">
+  <!-- Elige el idioma antes de pintar (castellano, catalán, euskera o gallego) -->
+  <script src="lang.js"></script>
+
+  <!-- Vista previa al compartir (WhatsApp, Telegram, Facebook, LinkedIn, X) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dondevamipasta.com/">
+  <meta property="og:site_name" content="¿Y mi pasta?">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="¿Y mi pasta? El ticket de tus impuestos">
+  <meta property="og:description" content="Pon tu sueldo y mira en qué se gasta cada euro que pagas. Y si les cuadran las promesas del 29N a PP, PSOE, Vox y Sumar.">
+  <meta property="og:image" content="https://dondevamipasta.com/og.jpg?v=2">
+  <meta property="og:image:secure_url" content="https://dondevamipasta.com/og.jpg?v=2">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Un ticket de supermercado con lo que paga en impuestos un sueldo de 1.800 € netos al mes: 20.912 € al año, repartidos entre pensiones, sanidad, educación e intereses de la deuda.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="¿Y mi pasta? El ticket de tus impuestos">
+  <meta name="twitter:description" content="Pon tu sueldo y mira en qué se gasta cada euro que pagas. Y si les cuadran las promesas del 29N.">
+  <meta name="twitter:image" content="https://dondevamipasta.com/og.jpg?v=2">
+  <meta name="twitter:image:alt" content="Un ticket de supermercado con lo que paga en impuestos un sueldo de 1.800 € netos al mes: 20.912 € al año, repartidos entre pensiones, sanidad, educación e intereses de la deuda.">
+
+  <!-- Iconos -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="apple-mobile-web-app-title" content="¿Y mi pasta?">
+
+  <!-- Datos estructurados para buscadores -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "¿Y mi pasta?",
+    "alternateName": "El ticket de tus impuestos",
+    "url": "https://dondevamipasta.com/",
+    "description": "Calculadora de impuestos: pon tu sueldo y mira en qué se gasta cada euro que pagas, con datos oficiales de Eurostat y de los Presupuestos.",
+    "inLanguage": "es-ES",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "isAccessibleForFree": true,
+    "image": "https://dondevamipasta.com/og.jpg?v=2",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Azeret+Mono:wght@400;600;800&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#ticket" data-i18n="skip">Saltar al ticket</a>
+
+  <header class="brand">
+    <a href="./" class="logo" aria-label="¿Y mi pasta? Inicio" data-i18n-attr="aria-label:logoLabel">¿Y mi pasta?</a>
+    <div class="brand__right">
+      <nav class="langs" aria-label="Idioma" data-i18n-attr="aria-label:langsLabel">
+        <a href="/es" data-lang="es" hreflang="es" lang="es" title="Castellano">ES</a>
+        <a href="/ca" data-lang="ca" hreflang="ca" lang="ca" title="Català">CA</a>
+        <a href="/eu" data-lang="eu" hreflang="eu" lang="eu" title="Euskara">EU</a>
+        <a href="/gl" data-lang="gl" hreflang="gl" lang="gl" title="Galego">GL</a>
+      </nav>
+      <a href="#letra-pequena" class="brand__fine" data-i18n="brandFine">Fuentes y cálculo</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="frase">
+      <form id="form" class="sentence" autocomplete="off" novalidate>
+        <h1 id="frase" class="sentence__text">
+          <span class="w" data-i18n="heroPre">Cobro</span>
+          <label class="field">
+            <span class="sr-only" data-i18n="amountLabel">Tu sueldo en euros</span>
+            <input id="amount" name="amount" inputmode="decimal" placeholder="1.800" aria-describedby="hint" size="5">
+            <span class="field__eur" aria-hidden="true">€</span>
+            <span class="tap-hint tap-hint--side" aria-hidden="true">
+              <svg viewBox="0 0 64 24"><path d="M60,16 C46,4 26,3 6,12"/><path d="M6,12 L15,3.5 M6,12 L17,16"/></svg>
+              <span data-i18n="tapSide">clic para editar</span>
+            </span>
+          </label>
+          <button type="button" class="pick" id="kind" data-value="neto" aria-label="Cambiar entre bruto y neto" data-i18n-attr="aria-label:kindAria">netos</button>
+          <button type="button" class="pick" id="period" data-value="mes" aria-label="Cambiar entre al mes y al año" data-i18n-attr="aria-label:periodAria">al mes</button>
+          <span class="w" data-i18n="heroPost"></span>
+          <span id="pagasWrap" class="pagas-wrap">
+            <span class="w" data-i18n="pagasWord">en</span>
+            <button type="button" class="pick" id="pagas" data-value="14" aria-label="Cambiar número de pagas" data-i18n-attr="aria-label:pagasAria">14 pagas</button>
+          </span>
+        </h1>
+        <p class="tap-hint tap-hint--below" aria-hidden="true">
+          <svg viewBox="0 0 24 40"><path d="M14,38 C6,28 7,16 12,4"/><path d="M12,4 L4,12 M12,4 L19,11"/></svg>
+          <span data-i18n="tapBelow">toca lo subrayado para cambiarlo</span>
+        </p>
+        <p id="hint" class="hint" aria-live="polite"></p>
+        <button type="submit" class="print-btn" data-i18n="printBtn">Imprimir mi ticket</button>
+      </form>
+    </section>
+
+    <section id="resultado" class="result" aria-live="polite" hidden>
+      <div class="result__side">
+        <div class="pricetag" id="totalTag">
+          <p class="pricetag__name" data-i18n="totalName">Lo que pones en 2026</p>
+          <p class="pricetag__price" id="totalPrice"></p>
+          <p class="pricetag__unit" id="totalUnit"></p>
+        </div>
+
+        <ul class="parts" id="parts"></ul>
+
+        <div class="toggles">
+          <label class="switch"><input type="checkbox" id="optEmployer" checked><span data-i18n="optEmployer">Contar lo que paga tu empresa por ti</span></label>
+          <label class="switch"><input type="checkbox" id="optIndirect" checked><span data-i18n="optIndirect">Contar el IVA de lo que compras (estimado)</span></label>
+        </div>
+
+        <div class="calendar" id="calendar" aria-label="Día de liberación fiscal" data-i18n-attr="aria-label:calendarAria">
+          <div class="calendar__sheet">
+            <p class="calendar__month" id="calMonth"></p>
+            <p class="calendar__day" id="calDay"></p>
+            <p class="calendar__weekday" id="calWeekday"></p>
+          </div>
+          <p class="calendar__text" id="calText"></p>
+        </div>
+      </div>
+
+      <div class="result__ticket">
+        <div class="printer" aria-hidden="true"><div class="printer__slot"></div></div>
+        <div class="ticket-clip">
+          <article class="ticket" id="ticket" tabindex="-1" aria-label="Ticket de lo que pagas" data-i18n-attr="aria-label:ticketAria"></article>
+        </div>
+      </div>
+
+      <div class="share" id="compartir">
+        <p class="share__title" data-i18n="shareTitle">Que lo vea todo el mundo</p>
+        <div class="share__buttons">
+          <button type="button" class="btn btn--solid" id="btnImage" data-i18n="btnImage">Guardar la imagen</button>
+          <button type="button" class="btn" id="btnX" data-i18n="btnX">Publicar en X</button>
+          <button type="button" class="btn btn--quiet" id="btnCopy" data-i18n="btnCopy">Copiar el texto</button>
+        </div>
+        <p class="share__note" id="shareNote" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="folleto" class="flyer" aria-labelledby="folleto-titulo" hidden>
+      <h2 id="folleto-titulo" class="flyer__title" data-i18n="flyerTitle">Lo que no sale en el folleto</h2>
+      <p class="flyer__lede" data-i18n="flyerLede">Partidas concretas y lo que te toca pagar de cada una con tu sueldo. Ya están dentro del ticket y no se suman, salvo la subida de las pensiones, que llega en enero.</p>
+      <div class="flyer__grid" id="tags"></div>
+    </section>
+
+    <section id="promesas" class="promises" aria-labelledby="promesas-titulo" hidden>
+      <h2 id="promesas-titulo" class="promises__title" data-i18n="promisesTitle">Las ofertas de campaña</h2>
+      <p class="promises__lede" id="promisesLede"></p>
+      <ul class="legend" id="legend"></ul>
+      <button type="button" class="info-btn legend__more" data-info="legend" aria-haspopup="dialog" data-i18n="legendBtn">Qué significa cada sello</button>
+      <div class="promises__list" id="promises"></div>
+      <p class="promises__note" id="promisesNote"></p>
+    </section>
+
+    <section id="letra-pequena" class="fine" aria-labelledby="fine-titulo">
+      <details class="fine__details" id="fineDetails">
+      <summary class="fine__summary">
+        <h2 id="fine-titulo" data-i18n="fineTitle">La letra pequeña</h2>
+        <span class="fine__hint" data-i18n="fineHint">Cómo lo calculamos y de dónde salen los datos</span>
+      </summary>
+      <div class="fine__cols">
+        <div>
+          <h3 data-i18n="fineWhatH">Qué cuenta como “lo que pagas”</h3>
+          <p data-i18n="fineWhatP">Calculamos el caso de un asalariado en 2026: contrato indefinido, una sola persona, sin hijos, menor de 65 años y sin otras rentas.</p>
+          <ul>
+            <li data-i18n="fineIrpf"><strong>IRPF:</strong> la cuota anual con la escala estatal y la autonómica supletoria de 2026, la reducción por rendimientos del trabajo, el mínimo personal de 5.550 € y la deducción para rentas bajas de hasta 590,89 €. Tu comunidad autónoma puede subirlo o bajarlo unos cientos de euros. En el País Vasco y Navarra el IRPF es foral y tiene su propia escala, así que allí la cifra real puede variar más. La versión en euskera usa el IRPF foral de Araba, Bizkaia y Gipuzkoa.</li>
+            <li data-i18n="fineSsWorker"><strong>Tu cotización:</strong> el 6,50 % de tu sueldo hasta la base máxima de 5.101,20 € al mes, más tu parte de la cuota de solidaridad si la superas.</li>
+            <li data-i18n="fineSsEmployer"><strong>La de tu empresa:</strong> el 32,15 % que paga tu empresa a la Seguridad Social por tenerte contratado (incluye un 1,50 % típico de accidentes de trabajo, que varía según el sector). No aparece en tu nómina, pero forma parte de lo que cuestas.</li>
+            <li data-i18n="fineVat"><strong>IVA e impuestos especiales:</strong> es una estimación. Suponemos que gastas entre el 95 % y el 65 % de tu sueldo neto (cuanto más cobras, más ahorras) y que alrededor del 10 % de lo que gastas son impuestos.</li>
+          </ul>
+          <p data-i18n="fineToggles">Puedes quitar la parte de la empresa y el IVA con los interruptores.</p>
+        </div>
+        <div>
+          <h3 data-i18n="fineSplitH">Cómo repartimos tu dinero</h3>
+          <p data-i18n="fineSplitP1">Usamos el gasto de todas las administraciones (Estado, comunidades, ayuntamientos y Seguridad Social) por funciones, según Eurostat, para 2024, el último año publicado: 725.001 millones de euros. Cada línea del ticket es tu aportación multiplicada por el peso de esa función en el gasto total.</p>
+          <p data-i18n="fineSplitP2">Es una aproximación: en la práctica cada impuesto va a una caja distinta. Además, el gasto público fue mayor que los ingresos, así que una parte se pagó con deuda.</p>
+          <h3 data-i18n="fineFlyerH">Las partidas del folleto</h3>
+          <p data-i18n="fineFlyerP">Los Presupuestos Generales del Estado de 2023 siguen vigentes por prórroga en 2026, así que las cifras del Ministerio de Igualdad, la Casa Real, el Congreso y los partidos son las de esos presupuestos. La cifra de contratos públicos es una estimación de la CNMC, no una partida.</p>
+          <h3 data-i18n="fineOutH">Lo que no tenemos en cuenta</h3>
+          <p data-i18n="fineOutP">Impuesto de sociedades, IBI, impuestos sobre la vivienda, herencias o ahorro, y lo que recibes de vuelta en servicios y prestaciones.</p>
+        </div>
+        <div>
+          <h3 data-i18n="fineSourcesH">Fuentes</h3>
+          <ul class="sources" id="sources"></ul>
+        </div>
+      </div>
+      </details>
+      <p class="fine__disclaimer" data-i18n="disclaimer">Proyecto independiente. No es una web oficial ni está vinculada a ningún partido, ministerio ni a la Agencia Tributaria. No guardamos tu sueldo: todo se calcula en tu navegador.</p>
+      <p class="fine__repo" data-i18n="repo">¿Ves un dato mal? La web es de código abierto: <a href="https://github.com/estevecastells/dondevamipasta" target="_blank" rel="noopener">corrígelo en GitHub</a>.</p>
+    </section>
+  </main>
+
+  <!-- Ventana con las explicaciones largas (app.js la rellena) -->
+  <dialog class="sheet" id="sheet" aria-labelledby="sheetTitle">
+    <div class="sheet__box">
+      <header class="sheet__head">
+        <h2 class="sheet__title" id="sheetTitle"></h2>
+        <button type="button" class="sheet__close" data-close><span data-i18n="close">Cerrar</span> <span aria-hidden="true">✕</span></button>
+      </header>
+      <div class="sheet__body" id="sheetBody"></div>
+    </div>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

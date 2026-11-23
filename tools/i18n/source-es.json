@@ -1,0 +1,560 @@
+{
+  "meta": {
+    "title": "¿Y mi pasta? El ticket de tus impuestos",
+    "description": "Pon tu sueldo y te imprimimos el ticket: cuánto pagas en impuestos y en qué se gasta cada euro, con datos oficiales. Y si les cuadran las cuentas a PP, PSOE, Vox y Sumar en las elecciones del 29N."
+  },
+  "html": {
+    "skip": "Saltar al ticket",
+    "brandFine": "Fuentes y cálculo",
+    "heroPre": "Cobro",
+    "amountLabel": "Tu sueldo en euros",
+    "tapSide": "clic para editar",
+    "heroPost": "",
+    "pagasWord": "en",
+    "tapBelow": "toca lo subrayado para cambiarlo",
+    "printBtn": "Imprimir mi ticket",
+    "totalName": "Lo que pones en 2026",
+    "optEmployer": "Contar lo que paga tu empresa por ti",
+    "optIndirect": "Contar el IVA de lo que compras (estimado)",
+    "shareTitle": "Que lo vea todo el mundo",
+    "btnImage": "Guardar la imagen",
+    "btnX": "Publicar en X",
+    "btnCopy": "Copiar el texto",
+    "flyerTitle": "Lo que no sale en el folleto",
+    "flyerLede": "Partidas concretas y lo que te toca pagar de cada una con tu sueldo. Ya están dentro del ticket y no se suman, salvo la subida de las pensiones, que llega en enero.",
+    "promisesTitle": "Las ofertas de campaña",
+    "legendBtn": "Qué significa cada sello",
+    "fineTitle": "La letra pequeña",
+    "fineHint": "Cómo lo calculamos y de dónde salen los datos",
+    "fineWhatH": "Qué cuenta como “lo que pagas”",
+    "fineWhatP": "Calculamos el caso de un asalariado en 2026: contrato indefinido, una sola persona, sin hijos, menor de 65 años y sin otras rentas.",
+    "fineIrpf": "<strong>IRPF:</strong> la cuota anual con la escala estatal y la autonómica supletoria de 2026, la reducción por rendimientos del trabajo, el mínimo personal de 5.550 € y la deducción para rentas bajas de hasta 590,89 €. Tu comunidad autónoma puede subirlo o bajarlo unos cientos de euros. En el País Vasco y Navarra el IRPF es foral y tiene su propia escala, así que allí la cifra real puede variar más. La versión en euskera usa el IRPF foral de Araba, Bizkaia y Gipuzkoa.",
+    "fineSsWorker": "<strong>Tu cotización:</strong> el 6,50 % de tu sueldo hasta la base máxima de 5.101,20 € al mes, más tu parte de la cuota de solidaridad si la superas.",
+    "fineSsEmployer": "<strong>La de tu empresa:</strong> el 32,15 % que paga tu empresa a la Seguridad Social por tenerte contratado (incluye un 1,50 % típico de accidentes de trabajo, que varía según el sector). No aparece en tu nómina, pero forma parte de lo que cuestas.",
+    "fineVat": "<strong>IVA e impuestos especiales:</strong> es una estimación. Suponemos que gastas entre el 95 % y el 65 % de tu sueldo neto (cuanto más cobras, más ahorras) y que alrededor del 10 % de lo que gastas son impuestos.",
+    "fineToggles": "Puedes quitar la parte de la empresa y el IVA con los interruptores.",
+    "fineSplitH": "Cómo repartimos tu dinero",
+    "fineSplitP1": "Usamos el gasto de todas las administraciones (Estado, comunidades, ayuntamientos y Seguridad Social) por funciones, según Eurostat, para 2024, el último año publicado: 725.001 millones de euros. Cada línea del ticket es tu aportación multiplicada por el peso de esa función en el gasto total.",
+    "fineSplitP2": "Es una aproximación: en la práctica cada impuesto va a una caja distinta. Además, el gasto público fue mayor que los ingresos, así que una parte se pagó con deuda.",
+    "fineFlyerH": "Las partidas del folleto",
+    "fineFlyerP": "Los Presupuestos Generales del Estado de 2023 siguen vigentes por prórroga en 2026, así que las cifras del Ministerio de Igualdad, la Casa Real, el Congreso y los partidos son las de esos presupuestos. La cifra de contratos públicos es una estimación de la CNMC, no una partida.",
+    "fineOutH": "Lo que no tenemos en cuenta",
+    "fineOutP": "Impuesto de sociedades, IBI, impuestos sobre la vivienda, herencias o ahorro, y lo que recibes de vuelta en servicios y prestaciones.",
+    "fineSourcesH": "Fuentes",
+    "disclaimer": "Proyecto independiente. No es una web oficial ni está vinculada a ningún partido, ministerio ni a la Agencia Tributaria. No guardamos tu sueldo: todo se calcula en tu navegador.",
+    "repo": "¿Ves un dato mal? La web es de código abierto: <a href=\"https://github.com/estevecastells/dondevamipasta\" target=\"_blank\" rel=\"noopener\">corrígelo en GitHub</a>.",
+    "close": "Cerrar",
+    "logoLabel": "¿Y mi pasta? Inicio",
+    "langsLabel": "Idioma",
+    "kindAria": "Cambiar entre bruto y neto",
+    "periodAria": "Cambiar entre al mes y al año",
+    "pagasAria": "Cambiar número de pagas",
+    "calendarAria": "Día de liberación fiscal",
+    "ticketAria": "Ticket de lo que pagas"
+  },
+  "ui": {
+    "kindNet": "netos",
+    "kindGross": "brutos",
+    "perMonth": "al mes",
+    "perYear": "al año",
+    "pagas": "{n} pagas",
+    "hintYearNet": "Parece un sueldo anual neto.",
+    "hintYearGross": "Parece un sueldo anual bruto.",
+    "hintMonthNet": "Parece un sueldo mensual neto.",
+    "hintMonthGross": "Parece un sueldo mensual bruto.",
+    "warnYear": "¿Seguro que es al año? Parece un sueldo mensual. <button type=\"button\" data-fix=\"mes\">Cambiar a al mes</button>",
+    "warnMonth": "¿Seguro que es al mes? Parece un sueldo anual. <button type=\"button\" data-fix=\"ano\">Cambiar a al año</button>",
+    "emptyAmount": "Escribe cuánto cobras, por ejemplo 1.800 al mes o 30.000 al año.",
+    "totalUnit": "al año. Son {month} al mes.",
+    "partIrpf": "IRPF",
+    "partIrpfNote": "Te lo retienen en la nómina. Va a medias para el Estado y tu comunidad autónoma.",
+    "partSsWorker": "Tu cotización a la Seguridad Social",
+    "partSsWorkerNote": "También sale de tu nómina. Paga pensiones, bajas y paro.",
+    "partSsEmployer": "Lo que paga tu empresa por ti",
+    "partSsEmployerNote": "No lo ves en la nómina, pero es parte de lo que cuestas.",
+    "partIndirect": "IVA y otros impuestos al comprar",
+    "partIndirectNote": "Estimado a partir de lo que gastas en el día a día.",
+    "infoAbout": "Qué es: {name}",
+    "calText": "<strong>{Until}</strong>, todo lo que ganas es para pagar impuestos. {Since}, para ti.",
+    "calShareCost": "De cada 100 € que cuestas, <strong>{per100} €</strong> van a lo público.",
+    "calShareEarn": "De cada 100 € que ganas, <strong>{per100} €</strong> van a lo público.",
+    "tCaja": "Caja común de lo público",
+    "tTicket": "Ticket {n}",
+    "tYouPut": "Lo que pones",
+    "tIrpf": "IRPF",
+    "tSsWorker": "Tu cotización SS",
+    "tSsEmployer": "Cotización empresa",
+    "tIndirect": "IVA y especiales*",
+    "tTotal": "TOTAL",
+    "tSpentOn": "En qué se gasta",
+    "tNoRefunds": "No se admiten devoluciones",
+    "tComeBack": "Vuelva el año que viene.<br>No tiene opción.",
+    "tVatNote": "*IVA estimado.",
+    "tFoot": "Reparto según el gasto de todas las administraciones en {year} (Eurostat). Cálculo aproximado.",
+    "penNote": "¡más que todo el paro!",
+    "unitDefault": "lo que pones tú al año",
+    "unitEstimate": "hasta esto, de lo que pones tú al año",
+    "unitPerResident": "por cada residente",
+    "sticker": "Estimación",
+    "source": "Fuente:",
+    "sources": "Fuentes:",
+    "moreInfo": "Más información",
+    "bpParty": "Partido",
+    "bpNoData": "Sin datos",
+    "bpMore": "Cómo se cuenta y fuentes",
+    "pct": "{n} %",
+    "nowLine": "{label} <b>{amount}</b> al año",
+    "hlLine": "{text} <b>{amount}</b> más al año.",
+    "mineLabel": "tu parte del coste al año",
+    "why": "Por qué",
+    "legendTitle": "Qué significa cada sello",
+    "close": "Cerrar",
+    "shareFirst": "Este año pongo {total} en impuestos:",
+    "shareLast": "Trabajo para Hacienda {until}. ¿Y tu pasta?",
+    "shareInterest": "💸 {v} a intereses de la deuda",
+    "shareIgualdad": "♀️ {v} al Ministerio de Igualdad",
+    "shareMarruecos": "🛂 {v} a la policía de Marruecos",
+    "shareCasaReal": "👑 {v} a la Casa Real",
+    "sharePensions": "🧓 {v} a pensiones",
+    "imgPreparing": "Preparando la imagen…",
+    "imgSaved": "Imagen guardada. Súbela a tu post junto al texto.",
+    "imgError": "No se ha podido crear la imagen. Prueba con otro navegador.",
+    "copied": "Texto copiado.",
+    "copyError": "No se ha podido copiar. Selecciona el texto a mano.",
+    "imgFile": "mi-ticket-de-impuestos",
+    "imgYouPut": "Este año pongo",
+    "imgInTaxes": "en impuestos. Este es mi ticket:",
+    "imgWorkUntil": "Trabajo para Hacienda {until}.",
+    "imgRowIgualdad": "Ministerio de Igualdad",
+    "imgRowCorrupcion": "Amaños en contratos públicos",
+    "imgUpTo": "hasta",
+    "imgRowMarruecos": "Policía de Marruecos",
+    "imgRowLgtbi": "LGTBI+ en otros países",
+    "imgRowCasaReal": "Casa Real",
+    "imgSpentOn": "EN QUÉ SE GASTA",
+    "imgMore": "…y {n} cosas más",
+    "imgCta": "Calcula el tuyo en {url}",
+    "imgCtaNoUrl": "Calcula el tuyo en ¿Y mi pasta?",
+    "imgData": "Datos: Eurostat, BOE y Hacienda. Cálculo aproximado para un asalariado."
+  },
+  "data": {
+    "spending": {
+      "jubilacion": {
+        "label": "Pensiones de jubilación",
+        "short": "Pensiones jubilación"
+      },
+      "sanidad": {
+        "label": "Sanidad",
+        "short": "Sanidad"
+      },
+      "educacion": {
+        "label": "Educación",
+        "short": "Educación"
+      },
+      "incapacidad": {
+        "label": "Incapacidad y bajas por enfermedad",
+        "short": "Incapacidad y bajas"
+      },
+      "administracion": {
+        "label": "Gobiernos, parlamentos, Hacienda y exteriores",
+        "short": "Administración general"
+      },
+      "intereses": {
+        "label": "Intereses de la deuda",
+        "short": "Intereses de la deuda"
+      },
+      "viudedad": {
+        "label": "Pensiones de viudedad y orfandad",
+        "short": "Viudedad y orfandad"
+      },
+      "transporte": {
+        "label": "Carreteras, trenes y transporte",
+        "short": "Transporte"
+      },
+      "seguridad": {
+        "label": "Policía, bomberos, juzgados y cárceles",
+        "short": "Policía y justicia"
+      },
+      "paro": {
+        "label": "Prestaciones por desempleo",
+        "short": "Paro"
+      },
+      "empleo": {
+        "label": "Políticas de empleo, comercio y ayudas a empresas",
+        "short": "Empleo y empresas"
+      },
+      "medioambiente": {
+        "label": "Basuras, depuradoras y medio ambiente",
+        "short": "Basuras y medio ambiente"
+      },
+      "familia": {
+        "label": "Familias e hijos",
+        "short": "Familias e hijos"
+      },
+      "cultura": {
+        "label": "Cultura, deporte y ocio",
+        "short": "Cultura y deporte"
+      },
+      "idi": {
+        "label": "Investigación (I+D)",
+        "short": "Investigación (I+D)"
+      },
+      "defensa": {
+        "label": "Defensa",
+        "short": "Defensa"
+      },
+      "exclusion": {
+        "label": "Exclusión social y otras ayudas",
+        "short": "Exclusión social"
+      },
+      "industria": {
+        "label": "Industria, telecos, turismo y otros sectores",
+        "short": "Industria y otros"
+      },
+      "vivienda": {
+        "label": "Vivienda, urbanismo y agua",
+        "short": "Vivienda y urbanismo"
+      },
+      "agricultura": {
+        "label": "Agricultura y pesca",
+        "short": "Agricultura y pesca"
+      },
+      "energia": {
+        "label": "Energía",
+        "short": "Energía"
+      },
+      "teles": {
+        "label": "Televisiones, radios y publicaciones públicas",
+        "short": "Teles y radios públicas"
+      },
+      "cooperacion": {
+        "label": "Ayuda al desarrollo en el exterior",
+        "short": "Ayuda exterior"
+      },
+      "religion": {
+        "label": "Servicios religiosos y comunitarios",
+        "short": "Culto y comunidad"
+      }
+    },
+    "spicy": {
+      "pensiones": {
+        "title": "Pensiones: lo que pones hoy y la subida de 2027",
+        "unit": "lo que pones tú al año en pensiones",
+        "blurb": "Jubilación, viudedad y orfandad: la partida más grande del gasto público. Por ley, cada enero suben lo que subieron los precios. Funcas prevé alrededor de un 3,5 % para 2027 y cada punto cuesta unos 2.606 M€ al año: unos 9.100 M€ más que pagamos entre todos. La nómina ya marcó récord en octubre: 14.540 M€ en un mes para 10,57 millones de pensiones.",
+        "stat": "Las pensiones ya se llevan {pensionShare} de cada 100 € de tu ticket",
+        "extraText": "más a partir de enero, con la subida de 2027"
+      },
+      "corrupcion": {
+        "title": "Amaños y corrupción en contratos públicos",
+        "blurb": "La CNMC calcula que la falta de competencia en los concursos públicos encarece la factura entre 40.000 y 48.000 M€ al año. Usamos la cifra baja. Es una estimación de máximos e incluye cárteles de empresas, no solo corrupción política.",
+        "stat": "Estimación, no es una partida del presupuesto",
+        "byParty": {
+          "title": "¿Y por partido?",
+          "moneyLabel": "Lo que han fijado los tribunales",
+          "peopleLabel": "De todos los casos, 2000-2020",
+          "note": "El porcentaje es la parte de los 3.743 casos de corrupción con algún cargo público investigado entre 2000 y 2020 (<a href=\"http://www.ub.edu/irea/working_papers/2022/202221.pdf\" target=\"_blank\" rel=\"noopener\">Universitat de Barcelona, 2022</a>). Cuenta casos, no personas, y un caso entra en cuanto se investiga a alguien: muchos acaban archivados o en absolución. Depende sobre todo de cuánto poder ha tenido cada partido: PP y PSOE tuvieron cerca del 72 % de las alcaldías en esos años, el PSOE ha gobernado España unos 29 años y el PP unos 14, y Vox nunca. Las cifras en euros no se pueden sumar entre sí: unas son daños, otras comisiones, multas o ayudas mal repartidas. Fuentes de los euros: <a href=\"https://www.newtral.es/sentencias-pp-gurtel/20220408/\" target=\"_blank\" rel=\"noopener\">Newtral</a>, <a href=\"https://www.infobae.com/espana/agencias/2024/10/15/zaplana-condenado-a-10-anos-y-cinco-meses-de-carcel-y-a-pagar-25-millones-por-la-trama-de-las-itv-en-erial/\" target=\"_blank\" rel=\"noopener\">EFE</a>, <a href=\"https://www.publico.es/politica/destino-679-millones-ere-sentencia.html\" target=\"_blank\" rel=\"noopener\">Público</a>, <a href=\"https://www.larazon.es/andalucia/caso-ere-siete-anos-busca-sentencia_202611206affafe5c0d5c85b96c2c3ab.html\" target=\"_blank\" rel=\"noopener\">La Razón</a>, <a href=\"https://www.eldiario.es/politica/comisiones-pagos-mensuales-10-000-euros-enchufes-considera-probado-sentencia-caso-mascarillas_1_13324415.html\" target=\"_blank\" rel=\"noopener\">elDiario.es (mascarillas)</a>, <a href=\"https://www.eldiario.es/politica/anticorrupcion-archiva-investigacion-vox-financiacion-irregular-sancion-tribunal-cuentas_1_12389832.html\" target=\"_blank\" rel=\"noopener\">elDiario.es (Vox)</a> e <a href=\"https://www.iustel.com/diario_del_derecho/noticia.asp?ref_iustel=1176364\" target=\"_blank\" rel=\"noopener\">Iustel</a>. Todas las personas investigadas son inocentes mientras no haya condena.",
+          "rows": {
+            "PP": {
+              "moneyText": "<b>Gürtel:</b> el PP tuvo que devolver 573.311 € por beneficiarse de la trama (firme).<br><b>Erial (Zaplana):</b> multas de más de 25 M€ (2024, recurrida).",
+              "detail": "1.516 casos, 248 con condena"
+            },
+            "PSOE": {
+              "moneyText": "<b>ERE:</b> 679 M€ en ayudas repartidas sin los controles debidos entre 2000 y 2009 (anulada en parte en 2024, falta la nueva sentencia).<br><b>Mascarillas:</b> 6,6 M€ en comisiones (Supremo, 2026).",
+              "detail": "1.434 casos, 252 con condena"
+            },
+            "Vox": {
+              "moneyText": "Ninguna condena. El Tribunal de Cuentas le multó con 862.497 € por donaciones en efectivo sin identificar (recurrida).",
+              "detail": "1 caso, sin sentencia",
+              "caveat": "Casi no ha gobernado: nunca en España, y en ninguna comunidad hasta 2022, después de los años del estudio. Con poco poder hay pocas ocasiones.",
+              "pctLabel": "0,03 %"
+            },
+            "Sumar": {
+              "name": "Sumar (IU)",
+              "moneyText": "Ningún caso de Sumar. En IU: 456.522 € gastados con una tarjeta black de Caja Madrid (Supremo, 2018).",
+              "detail": "152 casos de IU, 40 con condena"
+            }
+          }
+        }
+      },
+      "intereses": {
+        "title": "Intereses de la deuda",
+        "blurb": "Lo que pagaron todas las administraciones solo en intereses en 2024. Más que todo el gasto en prestaciones por desempleo (24.077 M€).",
+        "stat": "Por cada 10 € para educación, {interestPer10Edu} € para intereses"
+      },
+      "marruecos": {
+        "title": "Ayuda a la policía de Marruecos",
+        "blurb": "Desde 2019 el Consejo de Ministros ha aprobado varias ayudas directas a Marruecos para frenar la inmigración irregular, de unos 30 M€ cada una. Calculamos lo que te toca de una de ellas. Aparte, la UE ha comprometido 500 M€ con Marruecos para 2021-2027.",
+        "stat": "30 M€ por ayuda; entre 92 y 123 M€ desde 2019, según la fuente"
+      },
+      "deuda": {
+        "title": "Tu trozo de la deuda pública",
+        "blurb": "La deuda de todas las administraciones cerró 2025 en 1,70 billones de euros. Repartida entre los 49,6 millones de residentes, bebés incluidos.",
+        "stat": "Por residente, no depende de tu sueldo"
+      },
+      "deficit": {
+        "title": "Deuda nueva de 2025",
+        "blurb": "En 2025 las administraciones gastaron 40.641 M€ más de lo que ingresaron. Ese agujero se tapa pidiendo prestado.",
+        "stat": "Por residente, no depende de tu sueldo"
+      },
+      "casareal": {
+        "title": "Casa Real",
+        "blurb": "Asignación de la Casa del Rey en los PGE, congelada desde 2021. Incluye los sueldos de la Familia Real. Seguridad, viajes y palacios van en otros presupuestos (Interior, Defensa, Patrimonio Nacional).",
+        "stat": "8,43 M€ al año"
+      },
+      "partidos": {
+        "title": "Subvención a los partidos políticos",
+        "blurb": "Lo que reciben cada año los partidos con escaño para su funcionamiento ordinario, congelado desde 2018. Aparte van las subvenciones electorales y las de los grupos parlamentarios.",
+        "stat": "52,7 M€ al año"
+      },
+      "congreso": {
+        "title": "Congreso de los Diputados",
+        "blurb": "Presupuesto propio del Congreso: sueldos de los 350 diputados, personal, grupos parlamentarios y funcionamiento. El Senado va aparte.",
+        "stat": "110,4 M€ al año"
+      },
+      "teles": {
+        "title": "Teles y radios públicas",
+        "blurb": "Televisiones, radios y publicaciones de todas las administraciones: RTVE y las autonómicas, entre otras.",
+        "stat": "3.144 M€ en 2024"
+      },
+      "defensa": {
+        "title": "Defensa",
+        "blurb": "Gasto militar según la clasificación oficial de la UE. La OTAN usa una definición más amplia que da una cifra mayor.",
+        "stat": "14.233 M€ en 2024"
+      },
+      "religion": {
+        "title": "Culto y servicios comunitarios",
+        "blurb": "Gasto público clasificado como servicios religiosos y comunitarios en 2024.",
+        "stat": "975 M€ en 2024"
+      },
+      "igualdad": {
+        "title": "Ministerio de Igualdad",
+        "blurb": "Presupuesto del ministerio en los PGE de 2023, que siguen vigentes por prórroga. Según el propio ministerio, unos 320 M€ van a combatir la violencia de género.",
+        "stat": "573 M€ al año, {timesCasaReal} veces la Casa Real"
+      },
+      "lgtbi": {
+        "title": "Proyectos LGTBI+ en otros países",
+        "blurb": "En 2023 la AECID dedicó más de 2 M€ a proyectos para personas LGTBI+ en Ecuador, Colombia, Nicaragua, México, Honduras, República Dominicana, Argentina y Cabo Verde.",
+        "stat": "Algo más de 2 M€ en 2023"
+      },
+      "palestina": {
+        "title": "Ayuda extra a Palestina",
+        "blurb": "Ayuda adicional a la población palestina anunciada por Exteriores para 2025. Incluye a la UNRWA, la agencia de la ONU para los refugiados palestinos, que ha recibido más de 60 M€ de España desde octubre de 2023.",
+        "stat": "150 M€ en 2025"
+      },
+      "cooperacion": {
+        "title": "Ayuda Oficial al Desarrollo",
+        "blurb": "Todo lo que España cuenta como ayuda a otros países en 2025, la cifra más alta en 15 años. Con las reglas de la OCDE incluye la parte del presupuesto de la UE destinada a cooperación y las aportaciones a organismos internacionales, por eso es mayor que la línea “Ayuda exterior” del ticket.",
+        "stat": "Más de 4.550 M€ en 2025"
+      }
+    },
+    "promises": {
+      "lede": "El <b>29 de noviembre</b> hay elecciones generales. Esto es lo que PP, PSOE, Vox y Sumar quieren cambiar en las partidas de tu ticket, lo que costaría y si les salen las cuentas. Ninguno de los cuatro programas dice cuánto cuesta en total lo que promete.",
+      "note": "Mismo criterio para los cuatro. Usamos sus programas para el 29N (PP, 10 de noviembre; Vox, 12; PSOE, 15; Frente Amplio, 16) y, para los costes, datos oficiales y estimaciones independientes; cuando la única cifra es del propio partido, lo decimos. «Sin precio» no es mejor nota que «Cuentas de la lechera»: solo significa que no han dado números para comprobarlo. Punto de partida para todos: la AIReF calcula que en 2027 ya hace falta un ajuste de unos 10.700 M€ antes de cualquier promesa nueva. Sumar se presenta dentro de la coalición Frente Amplio.",
+      "noOffer": "No hemos encontrado una propuesta concreta en su programa.",
+      "verdicts": {
+        "cuadra": {
+          "label": "Cuadra",
+          "rule": "Se sabe lo que cuesta y el dinero para pagarlo está identificado y llega."
+        },
+        "medias": {
+          "label": "Cuadra a medias",
+          "rule": "Se sabe lo que cuesta, pero cómo pagarlo está sin cifrar o solo cubre una parte."
+        },
+        "sinprecio": {
+          "label": "Sin precio",
+          "rule": "No dicen cuánto cuesta ni cuánto recaudaría. Sin esa cifra no se puede comprobar."
+        },
+        "lechera": {
+          "label": "Cuentas de la lechera",
+          "rule": "Cuesta mucho y lo que proponen para pagarlo no llega ni de lejos, según los datos oficiales de esas partidas."
+        }
+      },
+      "parties": {
+        "Sumar": {
+          "sub": "en Frente Amplio"
+        }
+      },
+      "items": {
+        "pensiones": {
+          "title": "Pensiones",
+          "nowLabel": "Hoy pones en pensiones",
+          "intro": "Por ley, cada enero las pensiones suben lo que subieron los precios. Cada punto cuesta unos 2.606 M€ al año, y para enero de 2027 Funcas prevé alrededor de un 3,5 %.",
+          "highlightText": "Esa subida son unos 9.100 M€ más al año. Tu parte:",
+          "offers": {
+            "PP": {
+              "what": "Blindar por ley que suban con el IPC y bajar el IRPF a quien siga trabajando después de jubilarse.",
+              "costText": "Subirlas con el IPC en 2027: unos 9.100 M€ más al año.",
+              "why": "La subida con el IPC ya es ley desde 2021, así que el coste no es nuevo. Se paga con cotizaciones, con el recargo del MEI y con dinero del Estado, en parte prestado: la AIReF da por cumplida la regla de gasto, pero calcula que la deuda llegaría al 123 % del PIB en 2050. El PP no dice de dónde saldría dinero extra."
+            },
+            "PSOE": {
+              "what": "Meter en la Constitución que suban con el IPC, seguir subiendo las mínimas y adelantar la cuota extra que pagan los sueldos más altos.",
+              "costText": "Subirlas con el IPC en 2027: unos 9.100 M€ más al año.",
+              "why": "Igual que con el PP, la subida con el IPC ya es ley y se paga en parte con deuda (la AIReF avisa de que la regla de gasto se cumple, pero no garantiza que sea sostenible). La cuota de los sueldos altos ya existe; no dicen cuánto más traería adelantarla. Cambiar la Constitución necesita tres quintos del Congreso y del Senado."
+            },
+            "Vox": {
+              "what": "No dice si seguirán subiendo con el IPC. Promete que serán sostenibles gracias a más crecimiento y más natalidad.",
+              "why": "El programa no cifra nada sobre pensiones. Su portavoz económico ha defendido un sistema mixto con una parte de capitalización individual, pero eso no está en el programa."
+            },
+            "Sumar": {
+              "what": "Ninguna pensión por debajo del salario mínimo, jubilación a los 65 como máximo y a los 60 en trabajos penosos. Y el IPC en la Constitución.",
+              "costText": "Solo lo nuevo: unos 20.000 M€ al año, según el propio Frente Amplio. Más la subida con el IPC.",
+              "why": "Lo pagarían con impuestos a grandes patrimonios, herencias y grandes empresas, que según Colau darían «más de 10.000 millones» en total. Solo esta medida cuesta el doble, y con ese mismo dinero prometen también vivienda y la ayuda por hijo. Como referencia, el impuesto a las grandes fortunas recaudó 623 M€ en su primer año."
+            }
+          }
+        },
+        "irpf": {
+          "title": "IRPF",
+          "nowLabel": "Hoy pagas de IRPF",
+          "intro": "El impuesto que más te quitan de la nómina. La mitad va al Estado y la otra mitad a tu comunidad autónoma.",
+          "offers": {
+            "PP": {
+              "what": "Ajustar el IRPF a la inflación, que no pague quien cobra el salario mínimo y rebajas para los menores de 35 en sus primeros cuatro años.",
+              "costText": "Dejaría de entrar unos 5.300 M€ al año según el PP, y más de 16.000 M€ si compensa toda la inflación desde 2018 (Instituto Juan de Mariana).",
+              "why": "Es la rebaja más moderada de las grandes. Dicen pagarla con una auditoría del gasto, menos ministerios y asesores y más lucha contra el fraude, pero no ponen cifras a esos ahorros. Y la AIReF ya pide un ajuste de unos 10.700 M€ en 2027 antes de cualquier rebaja."
+            },
+            "PSOE": {
+              "what": "Subir del 30 % al 35 % lo que pagan las rentas del ahorro por encima de 300.000 € y convertir el mínimo por hijo en una ayuda que cobren también quienes no pagan IRPF.",
+              "why": "Ni la subida ni la ayuda llevan cifra en el programa, y no hemos encontrado ninguna estimación independiente."
+            },
+            "Vox": {
+              "what": "Que los primeros 22.000 € no paguen nada y dejar solo dos tramos: 15 % hasta 70.000 € y 25 % por encima. Además, 4 puntos menos por hijo.",
+              "costText": "Dejaría de entrar entre 40.000 y 46.000 M€ al año según Vox, y 85.000 M€ según Hacienda: el 61 % de lo que recauda hoy el IRPF.",
+              "why": "Con la bajada del IVA y de Sociedades, su rebaja suma 64.000 M€ al año según sus propias cuentas. Dicen pagarla recortando gasto «superfluo» y subvenciones, pero las de los partidos son unos 53 M€ al año y todas las ayudas a asociaciones, fundaciones, partidos y sindicatos sumaron 4.771 M€ en 2025. El resto tendría que salir de las comunidades, que dedican casi dos tercios de su presupuesto a sanidad, educación y servicios sociales."
+            },
+            "Sumar": {
+              "what": "Bajar el IRPF a los sueldos de hasta 27.000 € y subir al 52 % el tipo máximo a partir de 300.000 €.",
+              "why": "El programa no dice cuánto costaría la bajada ni cuánto recaudaría la subida."
+            }
+          }
+        },
+        "iva": {
+          "title": "IVA",
+          "nowLabel": "Hoy pagas de IVA y similares (estimado)",
+          "intro": "Lo pagas en cada compra sin darte cuenta. Es el segundo impuesto que más recauda, después del IRPF.",
+          "offers": {
+            "PP": {
+              "what": "IVA del 0 % para los alimentos básicos, también carne, pescado y conservas, mientras duren los precios altos.",
+              "costText": "Sin cifra del PP. La rebaja de 2023, que dejaba fuera la carne y el pescado, costó 1.703 M€ en un año.",
+              "why": "Hay una referencia oficial de coste, pero el PP no dice cómo lo pagaría más allá de la auditoría del gasto y la lucha contra el fraude, que no tienen cifra."
+            },
+            "Vox": {
+              "what": "Bajar el IVA general del 21 % al 18 % y el reducido del 10 % al 8 %.",
+              "costText": "Dejaría de entrar unos 14.000 M€ al año, según el propio Vox.",
+              "why": "Forma parte de los 64.000 M€ de su rebaja total, que dicen pagar con recortes de subvenciones y de gasto «superfluo» que, sumados, no llegan ni de lejos (ver IRPF)."
+            },
+            "Sumar": {
+              "what": "Bajar el IVA de peluquerías, veterinarios y pañales, y luz sin IVA para el consumo más bajo.",
+              "why": "Ninguna de estas rebajas lleva cifra en el programa."
+            }
+          }
+        },
+        "vivienda": {
+          "title": "Vivienda",
+          "nowLabel": "Hoy pones en vivienda y urbanismo",
+          "intro": "Es de lo que menos gasta el Estado y de lo que más prometen todos.",
+          "offers": {
+            "PP": {
+              "what": "Un millón de viviendas liberando suelo e IVA del 4 % para la primera vivienda de los menores de 40.",
+              "why": "El programa no dice cuánto costaría la rebaja del IVA ni cuánto dinero público pondría en el millón de viviendas."
+            },
+            "PSOE": {
+              "what": "Movilizar el 1 % del PIB al año, créditos del ICO incluidos, y 100.000 viviendas del Estado.",
+              "costText": "El 1 % del PIB son unos 17.000 M€ al año, aunque una parte serían préstamos y no gasto.",
+              "why": "Hay una cifra, pero no dicen qué parte es gasto y qué parte crédito, ni de dónde saldría el dinero."
+            },
+            "Vox": {
+              "what": "IVA del 0 % para la compra de vivienda nueva como primera residencia.",
+              "why": "No lo cifran, y forma parte de una rebaja de impuestos que ya no cuadra por sí sola (ver IRPF)."
+            },
+            "Sumar": {
+              "what": "El 1 % del PIB al año para 1,5 millones de viviendas públicas en 12 años.",
+              "costText": "Unos 17.000 M€ al año, según el propio Frente Amplio.",
+              "why": "Sale de la misma bolsa que la subida de pensiones (20.000 M€) y la ayuda por hijo (19.300 M€): entre las tres pasan de 56.000 M€ al año, y sus nuevos impuestos darían «más de 10.000 millones» según Colau."
+            }
+          }
+        },
+        "familia": {
+          "title": "Familias e hijos",
+          "nowLabel": "Hoy pones en familias e hijos",
+          "intro": "Ayudas por hijo, por nacimiento y para la crianza.",
+          "offers": {
+            "PP": {
+              "what": "Juntar todas las deducciones del IRPF por hijos en una sola que se cobre cada mes, también quien no paga IRPF, y subir los mínimos por hijo con la inflación.",
+              "why": "El programa no dice cuánto cobraría cada familia ni cuánto costaría. Se suma a su rebaja del IRPF, que tampoco cifra cómo se paga (ver IRPF)."
+            },
+            "Vox": {
+              "what": "Dar a todas las familias, desde el primer hijo, las ventajas que hoy tienen las numerosas; que el Estado pague la cotización de quien deja de trabajar para criar a sus hijos, y escuela de 0 a 3 años gratis.",
+              "why": "No cifra ninguna de las tres medidas. Van además de los 4 puntos menos de IRPF por hijo, que forman parte de una rebaja que ya no cuadra (ver IRPF)."
+            },
+            "PSOE": {
+              "what": "Una ayuda universal por crianza para los 8 millones de menores, pagada con impuestos a las grandes fortunas y a las rentas del capital.",
+              "why": "El programa no dice cuánto se cobraría por hijo. Como referencia, 200 € al mes por menor costarían unos 19.300 M€ al año (ISEAK). El impuesto a las grandes fortunas recaudó 623 M€ en su primer año."
+            },
+            "Sumar": {
+              "what": "200 € al mes por hijo, pagados con un impuesto del 3 % a los patrimonios de más de 50 M€.",
+              "costText": "Unos 19.300 M€ al año (estimación de ISEAK).",
+              "why": "El Observatorio Fiscal de la UE calcula que un impuesto así daría unos 5.200 M€ en España (para patrimonios de más de 100 M€): ni un tercio de lo que cuesta la ayuda."
+            }
+          }
+        }
+      }
+    },
+    "sources": {
+      "Eurostat: gasto de las administraciones por funciones (COFOG), España 2024": "Eurostat: gasto de las administraciones por funciones (COFOG), España 2024",
+      "Eurostat: déficit y deuda de las administraciones, España 2025": "Eurostat: déficit y deuda de las administraciones, España 2025",
+      "BOE: Orden PJC/297/2026 de bases y tipos de cotización": "BOE: Orden PJC/297/2026 de bases y tipos de cotización",
+      "Ministerio de Hacienda: deducción del IRPF para el SMI de 2026": "Ministerio de Hacienda: deducción del IRPF para el SMI de 2026",
+      "Ministerio de Hacienda: prórroga de los PGE para 2026": "Ministerio de Hacienda: prórroga de los PGE para 2026",
+      "Agencia Tributaria: tipo efectivo del IVA, informe de recaudación 2025": "Agencia Tributaria: tipo efectivo del IVA, informe de recaudación 2025",
+      "La Moncloa: presupuesto del Ministerio de Igualdad para 2023": "La Moncloa: presupuesto del Ministerio de Igualdad para 2023",
+      "Congreso de los Diputados: presupuesto de 2023": "Congreso de los Diputados: presupuesto de 2023",
+      "CNMC: sobrecostes en la contratación pública": "CNMC: sobrecostes en la contratación pública",
+      "La Moncloa: ayuda a Marruecos contra la inmigración irregular (2019)": "La Moncloa: ayuda a Marruecos contra la inmigración irregular (2019)",
+      "Statewatch: cuarta ayuda de 30 M€ a Marruecos (2022)": "Statewatch: cuarta ayuda de 30 M€ a Marruecos (2022)",
+      "AECID: proyectos LGTBI+ en 2023": "AECID: proyectos LGTBI+ en 2023",
+      "Ministerio de Exteriores: apoyo a la UNRWA y a Palestina": "Ministerio de Exteriores: apoyo a la UNRWA y a Palestina",
+      "Ministerio de Exteriores: Ayuda Oficial al Desarrollo de 2025": "Ministerio de Exteriores: Ayuda Oficial al Desarrollo de 2025",
+      "Programas para el 29N: PP": "Programas para el 29N: PP",
+      "Programas para el 29N: PSOE": "Programas para el 29N: PSOE",
+      "Programas para el 29N: Vox": "Programas para el 29N: Vox",
+      "Programas para el 29N: Frente Amplio (Sumar)": "Programas para el 29N: Frente Amplio (Sumar)",
+      "El Independiente: cada punto de IPC cuesta 2.606 M€ (memoria del Gobierno)": "El Independiente: cada punto de IPC cuesta 2.606 M€ (memoria del Gobierno)",
+      "Infobae: previsión de Funcas para 2027": "Infobae: previsión de Funcas para 2027",
+      "Artículo14: récord de la nómina de pensiones en octubre de 2026": "Artículo14: récord de la nómina de pensiones en octubre de 2026",
+      "AIReF: regla de gasto en pensiones (mayo de 2026)": "AIReF: regla de gasto en pensiones (mayo de 2026)",
+      "El Independiente: la AIReF pide un ajuste en 2027": "El Independiente: la AIReF pide un ajuste en 2027",
+      "El Independiente: Hacienda cifra la rebaja de Vox en 85.000 M€": "El Independiente: Hacienda cifra la rebaja de Vox en 85.000 M€",
+      "Universitat de Barcelona (IREA): casos de corrupción por partido, 2000-2020": "Universitat de Barcelona (IREA): casos de corrupción por partido, 2000-2020",
+      "Gobierno, coste por punto de IPC (El Independiente)": "Gobierno, coste por punto de IPC (El Independiente)",
+      "CNMC": "CNMC",
+      "Eurostat, COFOG 2024": "Eurostat, COFOG 2024",
+      "La Moncloa, Consejo de Ministros": "La Moncloa, Consejo de Ministros",
+      "Eurostat (deuda) e INE/Eurostat (población)": "Eurostat (deuda) e INE/Eurostat (población)",
+      "Eurostat, déficit 2025": "Eurostat, déficit 2025",
+      "PGE 2023, sección 01": "PGE 2023, sección 01",
+      "Consejo de Ministros, reparto 2023": "Consejo de Ministros, reparto 2023",
+      "Congreso, presupuesto 2023": "Congreso, presupuesto 2023",
+      "La Moncloa, PGE 2023": "La Moncloa, PGE 2023",
+      "AECID": "AECID",
+      "Ministerio de Exteriores": "Ministerio de Exteriores",
+      "Finect: qué proponen los partidos sobre pensiones": "Finect: qué proponen los partidos sobre pensiones",
+      "Programa del PSOE": "Programa del PSOE",
+      "Programa de Vox": "Programa de Vox",
+      "Demócrata: la receta económica de Vox": "Demócrata: la receta económica de Vox",
+      "Público: Colau y el impuesto a los ultrarricos": "Público: Colau y el impuesto a los ultrarricos",
+      "Hacienda: lo que recaudó el impuesto a las grandes fortunas": "Hacienda: lo que recaudó el impuesto a las grandes fortunas",
+      "Programa del PP": "Programa del PP",
+      "Moncloa.com: la rebaja del IRPF del PP": "Moncloa.com: la rebaja del IRPF del PP",
+      "Qué!: la Comisión Europea sobre deflactar el IRPF": "Qué!: la Comisión Europea sobre deflactar el IRPF",
+      "Infobae: el Instituto Juan de Mariana sobre el IRPF sin deflactar": "Infobae: el Instituto Juan de Mariana sobre el IRPF sin deflactar",
+      "Herqles: las cifras de la rebaja fiscal de Vox": "Herqles: las cifras de la rebaja fiscal de Vox",
+      "Infobae: cómo dice Vox que pagaría la rebaja": "Infobae: cómo dice Vox que pagaría la rebaja",
+      "The Objective: ayudas a asociaciones, partidos y sindicatos en 2025": "The Objective: ayudas a asociaciones, partidos y sindicatos en 2025",
+      "Cátedra UNED: en qué gastan las comunidades (2026)": "Cátedra UNED: en qué gastan las comunidades (2026)",
+      "Programa de Frente Amplio": "Programa de Frente Amplio",
+      "Agencia Tributaria: IVA en 2023": "Agencia Tributaria: IVA en 2023",
+      "Artículo14: lo que costaría una ayuda de 200 € por hijo": "Artículo14: lo que costaría una ayuda de 200 € por hijo",
+      "El Salto: el Observatorio Fiscal de la UE sobre un impuesto a milmillonarios": "El Salto: el Observatorio Fiscal de la UE sobre un impuesto a milmillonarios"
+    }
+  }
+}

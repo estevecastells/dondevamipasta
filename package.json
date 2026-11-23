@@ -1,0 +1,17 @@
+{
+  "name": "dondevamipasta",
+  "private": true,
+  "description": "Pones tu sueldo y te imprime el ticket de lo que pagas en impuestos y en qué se gasta cada euro.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "python3 tools/serve.py",
+    "test": "node --test \"tests/*.test.mjs\"",
+    "check": "node tools/i18n.mjs check",
+    "links": "node tools/check-links.mjs",
+    "build": "node tools/build-langs.mjs"
+  }
+}

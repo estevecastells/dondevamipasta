@@ -1,0 +1,46 @@
+name: Un dato está mal
+description: Una cifra, una fuente o un texto que no cuadra o se ha quedado viejo
+title: "Dato: "
+labels: ["datos"]
+body:
+  - type: markdown
+    attributes:
+      value: Gracias por avisar. Sin una fuente no podemos cambiar una cifra, así que el enlace es lo más importante.
+  - type: input
+    id: donde
+    attributes:
+      label: ¿Dónde está?
+      description: La sección y la partida. Por ejemplo, «Lo que no sale en el folleto → Casa Real».
+    validations:
+      required: true
+  - type: textarea
+    id: ahora
+    attributes:
+      label: ¿Qué pone ahora?
+    validations:
+      required: true
+  - type: textarea
+    id: deberia
+    attributes:
+      label: ¿Qué debería poner?
+    validations:
+      required: true
+  - type: input
+    id: fuente
+    attributes:
+      label: Fuente
+      description: Enlace a la página o al documento que lo dice. Mejor si es oficial (BOE, Eurostat, INE, Hacienda…).
+      placeholder: https://
+    validations:
+      required: true
+  - type: dropdown
+    id: idioma
+    attributes:
+      label: ¿En qué idioma lo has visto?
+      options:
+        - Castellano
+        - Català
+        - Euskara
+        - Galego
+    validations:
+      required: false

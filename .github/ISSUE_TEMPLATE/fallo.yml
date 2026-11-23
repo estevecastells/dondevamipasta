@@ -1,0 +1,23 @@
+name: Algo no funciona
+description: La web se ve mal, no calcula o hace algo raro
+labels: ["fallo"]
+body:
+  - type: textarea
+    id: que
+    attributes:
+      label: ¿Qué pasa?
+      description: Qué esperabas y qué ha pasado. Una captura de pantalla ayuda mucho.
+    validations:
+      required: true
+  - type: input
+    id: como
+    attributes:
+      label: ¿Cómo se repite?
+      description: Por ejemplo, «pongo 2.500 € netos al mes en 12 pagas y pulso Imprimir».
+  - type: input
+    id: navegador
+    attributes:
+      label: Navegador y dispositivo
+      placeholder: Brave en un Android, Safari en un iPhone, Chrome en Windows…
+    validations:
+      required: true
